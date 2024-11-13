@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div class="w3-row-padding">
+		<div class="w3-third">
+			<div class="w3-round-xlarge w3-container w3-padding w3-card-4 w3-animate-top">
+				<form>
+					<p class="w3-center">
+						<label for="uploadimage">
+							<img id='image' src="../static/images/personicon.png" style="width:30%">
+							<input type="file" id="uploadimage" name="uploadimage" style="display:none" onchange="readURL(this)">
+						</label>
+					</p>
+					<p>
+						<label><b>IDNO</b></label>
+						<input type="text" id="idno" name="idno" class="w3-input">
+					</p>
+					<p>
+						<label><b>LASTNAME</b></label>
+						<input type="text" id="lastname" name="lastname" class="w3-input">
+					</p>
+					<p>
+						<label><b>FIRSTNAME</b></label>
+						<input type="text" id="firstname" name="firstname" class="w3-input">
+					</p>
+					<p>
+						<label><b>COURSE</b></label>
+						<input type="text" id="course" name="course" class="w3-input">
+					</p>
+					<p>
+						<label><b>LEVEL</b></label>
+						<input type="text" id="level" name="level" class="w3-input">
+					</p>
+					<p>
+						<input type="submit" value="SAVE" class="w3-button w3-blue">
+						<input type="reset" value="CANCEL" class="w3-button w3-red">
+					</p>
+				</form>
+			</div>
+		</div>
+		<div class="w3-twothird"></div>
+	</div>
+	<script>
+		function readURL(input){
+			if(input.files && input.files[0]){
+				reader = new FileReader();
+				reader.onload = function(e){
+					document.getElementById('image').src=e.target.result;
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+	</script>
+{% endblock %}
